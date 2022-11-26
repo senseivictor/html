@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8"> 
+	<title>Greedy</title>
+</head>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<style type="text/css">
+	body{
+	  background-image: url('imagini/background2.png');
+	  background-size: 60%;
+	}
+  </style>
+
+<body>
+
+	<div class='container'>
+
+		<div id="titlu">Metoda Greedy</div>
+		<hr>
+		<div id="introducere"><b><center>Introducere</center></b>
+			Problemele de optimizare de maximizare/minimizare a unei anumite cantități sunt rezolvate printr-un algoritm special numit Greedy Algorithm. Când folosim algoritmul Greedy, căutăm doar o soluție optimizată local și nu una globală. În unele cazuri, această abordare poate oferi inițial soluția corectă, dar spre final, poate părea inutilă. 
+			<br>
+			Această abordare are meritele și dezavantajele ei. Deși, este o modalitate bună de a rezolva problemele de optimizare, totuși, în unele cazuri, trece cu vederea unele condiții. Prin urmare, este important să respectați fiecare pas în timp ce lucrați cu acest algoritm pentru a obține cea mai optimă soluție care urmează setul de date furnizat. </div>
+		<hr>
+    	<div id="algoritm"><b><center>Algoritm</center></b>
+			Ni se oferă monede de 1$, 2$, 5$ și 10$. Acum trebuie să numărați valoarea specificată folosind aceste monede.
+			<br><br>
+			<b>Cazul 1:</b> 16$
+			<br>
+			Algoritmul Greedy va fi așa: 
+			<li>În primul rând, vom lua 1 monedă de 10$. Deci, acum suntem mai puțin cu 6$.</li>
+			<li>Acum, vom lua 1 monedă de 5$ și mai târziu, 1 monedă de 1$.</li>
+			De ce am ales prima moneda de 10$? Am fi putut alege și alte monede. Pentru că suntem lacomi(greedy). Luăm moneda care are o valoare mai mare. În acest caz, răspunsul a ieșit a fi bun. Dacă luăm un alt caz?
+			<br><br>
+			<b>Cazul 2:</b> 17$
+			<br>
+			Procedura va fi după cum urmează:
+			<br>
+			<li>Luăm o 1 monedă de 10$. Acum, avem cu 7$ mai puțin.</li>
+			<li>Nu avem altă opțiune decât să alegem 7 monede de 1 dolar fiecare.</li>  
+			<br>
+			Acum, aceasta nu este o idee foarte optimă. Aici eșuează algoritmul Greedy. Prin urmare, putem spune că utilizarea acestuia este excelentă pentru soluții imediate, dar nu pentru o soluție optimizată la nivel global. 
+			<img id="img" src="imagini/greedy cases.png" width="100%">
+		</div>
+		<hr>
+		<div id="utilizare"><b><center>Cazuri de utilizare</center></b>
+			Putem utiliza metoda Greedy atunci când:
+			<br>
+			<ol>
+				<li>Ni se oferă o listă ordonată de resurse precum monede, sarcini etc. </li>
+				<li>Începem cu cea mai mare/valoroasă resursă.</li>
+				<li>Mai târziu, continuăm să adăugăm resursele mai puțin valoroase pentru a ajunge la soluția optimizată.</li>
+			</ol>
+		</div>
+		<hr>
+		<div id="exemple"><b><center>Exemple</center></b>
+			<div id="denumire">I. Cumpărarea Și Vânzarerea Stockurilor</div>
+			<br>
+			Condiția problemei: Vi se oferă prețuri matrice  []  care conțin prețul unui stoc în anumite zile. Trebuie să alegeți o zi pentru cumpărarea acțiunilor și alta pentru vânzare. Returnați zilele în care cumpărați și vindeți stocul.
+			<br>
+			Abordarea problemei: Este destul de evident că atunci când vrei să cumperi ceva, vrei să plătești cel mai mic preț posibil. În mod similar, în timp ce vindeți aceleași lucruri, veți dori să vă creșteți profiturile vânzându-le la un preț mai mare. Deci:
+			<ol>
+				<li>Aici, sortarea nu va funcționa, deoarece trebuie să dați numărul zilei. Deci, veți găsi mai întâi valoarea minimă a stocului din prețuri[] . </li>
+				<li>Indicele valorii minime va deveni în ziua în care vă cumpărați acțiunile. </li>
+				<li>Pentru a vinde stocul, trebuie să verificați valoarea stocului în zilele după ce ați cumpărat stocul.</li>
+				<li>Prin urmare, rulați un loop până la sfârșit, începând de la ziCumpărare și găsiți valoarea maximă a stocului în matricea rămasă.</li>
+				<li>Acum, scădeți valoarea  ziCumpărare din ziVânzare</li>
+			</ol>
+			<br>
+			<a href="imagini/stocks c++.png">Algoritm C++</a>
+			<br><br>
+			<div id="denumire">II. Numărul Minim De Monede</div>
+			Condiția problemei: Ni se dă o valoare V și trebuie să dăm restul acesteia în monede indiene. Acum, valorile nominale sunt 1, 2, 5, 10, 20, 50, 100, 200, 500, 2000. Rezultatul ar trebui să conțină cel mai mic rest a valorii date.
+			<br>
+			Abordarea problemei: Din nou, deoarece trebuie să găsim numărul minim posibil de monede în schimbul valorii  V,  vom folosi Greedy. Deci, vom începe cu moneda cu valoare maximă care este mai mică sau egală cu  V.  Acum, vom scădea valoarea monedei alese din valoarea dată. Pentru valoarea rămasă, vom căuta din nou moneda cu valoare maximă și o vom adăuga la răspuns. Pașii sunt următorii:
+			<ol>
+				<li>Găsiți cea mai valoroasă monedă dintre cele date. </li>
+				<li>Adăugați-o la rezultat și scădeți din  V. </li>
+				<li>Repetați pașii de mai sus până găsiți valoarea completă.</li>
+			</ol>
+			<br>
+			<img id="img" src="imagini/monede.png" width="100%">
+			<a href="imagini/monede c++.png">Algoritm C++</a>
+			<br><br>
+			<div id="denumire">III. Problema Fracționară A Rucsacului</div>
+			<br>
+			Condiția problemei: Vi se oferă greutățile și valorile a  N  articole. Trebuie să puneți aceste articole într-un rucsac de capacitate W în așa fel încât valoarea finală a rucsacului să fie maximă. Puteți împărți articolele în fracții pentru a obține cel mai optim răspuns. 
+			<br>
+			Abordarea problemei:  Deoarece vi se cere să aflați valoarea maximă a rucsacului, ar trebui automat să utilizați abordarea Greedy. Acum, trebuie să maximizăm valoarea rucsacului în limita capacității sale fixe. Este destul de simplu că vom alege acel element a cărui greutate este mai mică, dar a cărui valoare este mai mare. De ce? Deoarece avem nevoie de valoare maximă în cadrul greutății limitate, dacă alegem o valoare mai mare cu o greutate mai mică, automat vom putea pune mai multe elemente în rucsac. Astfel, atingerea celei mai mari valori posibile. 
+			<br>
+			Să vedem pașii care trebuie de urmat:
+			<ol>
+				<li>Avem nevoie de elemente cu greutate mai mică și cu mai multă valoare. Deci, vom calcula rapoartele acestor două pentru fiecare element. (Raport = valoare/greutate)</li>
+				<li>Deoarece avem nevoie mai întâi de elemente cu valoare maximă, vom sorta aceste rapoarte în ordine crescătoare. </li>
+				<li>Acum, vom itera elementele și vom verifica dacă greutatea acelui element este mai mică sau egală cu greutatea maximă a rucsacului. Dacă da, adăugăm asta la răspunsul nostru. Altfel, mergem mai departe. </li>
+			</ol>
+			<br>
+			<img id="img" src="imagini/knapsack.png" width="100%">
+			<a href="imagini/knapsack c++.png">Algoritm C++</a>
+			<br><br>
+		</div>
+	</div>
+</body>
+</html>

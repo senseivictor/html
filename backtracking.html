@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8"> 
+	<title>Backtracking</title>
+</head>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<style type="text/css">
+  body{
+    background-image: url('imagini/background1.png');
+    background-size: 120%;
+  }
+</style>
+
+<body>
+
+	<div class='container'>
+
+		<div id="titlu">Metoda Backtracking</div>
+		<hr>
+		<div id="introducere"><b><center>Introducere</center></b>Backtracking este o metodă de parcurgere sistematică a spaţiului soluţiilor posibile al unei probleme. 
+      Este o metodă generală de programare, şi poate fi adaptata pentru orice problemă pentru care dorim să obţinem toate soluţiile posibile, sau să selectăm o soluţie optimă, din mulţimea soluţiilor posibile. 
+      Solutia este compusa din mai multe elemente (x1, x2, x3…xn) in care fiecare element xi este ales dintr-o multime corespunzatoare Mi numita multimea de baza a elementului xi.
+      Backtracking este însă şi cea mai costisitoare metodă din punct de vedere al timpului de execuţie.</div>
+		<hr>
+    <div id="algoritm"><b><center>Algoritm</center></b>
+      Aici, am definit o funcție numită „Backtrack” care preia un argument care ar putea fi o posibilă soluție. Dacă acel element nu este o soluție, îl aruncăm și mergem mai departe. Totuși, dacă se dovedește a fi o soluție nouă, ceea ce înseamnă că nu este deja menționată în lista de soluții, atunci o adăugăm pe listă. Și mai târziu, verificăm care dintre toate soluțiile este cea mai probabilă.
+      <br><br>
+      <img id="img" src="imagini/btexemplu.png" width="50%">
+      <br><br>
+    </div>
+		<hr>
+    <div id="utilizare"><b><center>Cazuri de utilizare</center></b>
+      <ol>
+        <li>Informațiile oferite nu sunt suficiente, așa că trebuie să încercăm toate soluțiile posibile pentru a o găsi pe cea mai optimă. </li>
+        <li>Fiecare decizie duce la un nou grup de opțiuni, așa că trebuie să verificăm fiecare dintre ele, folosind astfel backtracking. </li>
+      </ol>
+    </div>
+    <hr>
+		<div id="exemple"><b><center>Exemple</center></b>
+      <div id="denumire">I. Problema șobolanului în labirint</div> 
+      <br>
+      Condiția problemei:  Vi se oferă o matrice de ordinul N*N având 1 și 0 scrise ca elemente. Acum, imaginați-vă că există un șobolan la (0,0) și trebuie să ajungă la destinație la (N-1, N-1). Trebuie să oferiți căile pentru ca șobolanul să ajungă la destinație. Acum, 1 înseamnă că poți trece prin element, dar 0 înseamnă că nu poți. De asemenea, trebuie să aveți grijă de faptul că puteți merge în sus (S), în jos (J), în stânga (S) sau în dreapta (D). Tipăriți căile posibile. 
+      <br>
+      Abordarea problemei: în timp ce lucrați la soluția la această întrebare, asigurați-vă că desenați o schiță aproximativă a matricei și introduceți elementele în funcție de intrare. Va deveni mult mai ușor cu asta. Acum, în această întrebare, trebuie să găsiți toate căile posibile, astfel, vom folosi abordarea backtracking. Pașii sunt următorii:
+      <ol>
+        <li>Începeți cu poziția șobolanului (0,0). Acum, observați dacă puteți vira la dreapta sau aveți un 1 sub poziția șobolanului. Dacă, la ambele poziții, aveți 1, atunci alegeți una dintre modalități.</li>
+        <li>Acum, începeți să vă mișcați verificând unde se află 1 față de poziția dvs. actuală.</li>
+        <li>Nu uitați să adăugați calea răspunsului dvs. Pentru a vă deplasa în sus, imprimați S , pentru jos, imprimați J, pentru stânga, S și pentru dreapta, D.</li>
+        <li>Dacă la un moment dat vă aflați într-o fundătură, întoarceți-vă la poziția anterioară și urmați din nou o nouă cale.</li>
+        <li>Dacă ajungeți la destinație, imprimați-l ca răspuns și căutați alte răspunsuri potențiale repetând pașii.</li>
+      </ol>
+      <br>
+      <img id="img" src="imagini/rat_maze.png" width="100%">
+      <a href="imagini/maze c++.png">Algoritm C++</a>
+      <br><br>
+      <div id="denumire">II. Solver Sudoku</div>
+      <br>
+      Condiția: vi se oferă o grilă Sudoku cu câteva celule goale. Trebuie să scrieți un cod astfel încât toate celulele să fie umplute într-un mod corespunzător, conform regulilor Sudoku, care sunt:
+      <br>
+      Fiecare dintre cifre  1-9 trebuie să apară exact o dată pe fiecare rând.<br>
+      Fiecare dintre cifre  1-9 trebuie să apară exact o dată în fiecare coloană.<br>
+      Fiecare dintre cifre  1-9 trebuie să apară exact o dată în fiecare dintre cele 9 sub-casete 3x3 ale grilei.<br>
+      NOTĂ: „.” reprezintă spațiul gol.
+      <br>
+      Abordarea problemei: Dacă ați rezolvat un Sudoku în viața reală, v-ar fi foarte ușor să înțelegeți problema. Scopul acestei probleme este de a avea toate numerele de la 1 la 9 în fiecare bloc, rând și coloană. Deci, cum începem? Sa vedem:
+
+      <ol>
+        <li>Începem cu primul rând și prima coloană. </li>
+        <li>Începeți prin a verifica numerele de la 1 la 9. </li>
+        <li>Dacă există un număr care lipsește din blocul, coloana sau rândul respectiv, punem acel număr în acea poziție. </li>
+        <li>Repetați pașii de mai sus din nou și din nou până când completați întreaga casetă.</li>
+        <li>De asemenea, observați că dacă faceți o greșeală în timp ce ocupați, trebuie să vă întoarceți pe urmă și să ocupați din nou postul verificând postul vacant.</li>
+      </ol>
+      <br>
+      <img id="img" src="imagini/sudoku.png" width="100%">
+      <a href="imagini/sudoku c++.png">Algoritm C++</a>
+      <br><br>
+      <div id="denumire">III. Găsirea Cuvântului</div>
+      <br>
+      Condiția: vi se oferă o grilă de ordine m*n având ca elemente diferite alfabete. Ți se dă și un cuvânt. Trebuie să verificați dacă cuvântul dat există sau nu în matricea de cuvinte.
+      <br>
+      Abordarea problemei: Majoritatea problemelor de programare sunt legate de viața de zi cu zi. Ar trebui să rezolvați această întrebare ca și cum ați rezolva fizic jocul de căutare a cuvintelor. Acum urmează aceeași mentalitate și pași:
+      <ol>
+        <li>Observați ce cuvânt și elemente vi s-au dat. </li>
+        <li>Acum, începeți prin a afla elementele din indicele 0. </li>
+        <li>În orice moment, dacă nu puteți localiza un anumit element în grilă, returnați false. </li>
+        <li>Dacă, până la sfârșit, găsiți toate literele cuvântului țintă, atunci returnați adevărat.</li>
+      </ol>
+      <br>
+      <img id="img" src="imagini/words.png" width="100%">
+      <img id="img" src="imagini/words1.png" width="100%">
+      <a href="imagini/words c++.png">Algoritm C++</a>
+    </div>
+    
+	</div>
+	
+</body>
+</html>

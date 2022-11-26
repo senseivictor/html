@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8"> 
+	<title>Triere</title>
+</head>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<style type="text/css">
+	body{
+	  background-image: url('imagini/background3.png');
+	  background-size: 50%;
+	}
+  </style>
+
+<body>
+
+	<div class='container'>
+
+		<div id="titlu">Metoda Trierii</div>
+		<hr>
+		<div id="introducere"><b><center>Introducere</center></b>
+			Se numeşte metoda trierii o metodă ce indentifică toate soluţiile unei probleme în dependenţă de mulţimea soluţiilor posibile.  Toate soluţiile se identifică prin valori, ce aparţin tipurilor de date studiate: integer, boolean, enumerare, char, subdomeniu, tablouri unidimensionale. 
+		</div>
+		<hr>
+    	<div id="algoritm"><b><center>Algoritm</center></b>
+			Fie P o problemă, soluţia căreia se află printre elementele mulţimii S cu un număr finit de elemente. S={s1, s2 , s3 , ... , sn} . Soluţia se determină prin analiza fiecărui element S<sub>i</sub> din mulţimea S. 
+			<br><br>
+			SCHEMA GENERALĂ 
+			<br><br>
+			<img id="img" src="imagini/trexemplu.png" width="80%">
+			<br><br>
+			(SoluțiePosibilă este o funcţie booleană care returnează valoarea true dacă elementul S<sub>i</sub> satisface condiţiile problemei şi false în caz contrar, iar PrelucrareaSoluției este o procedură care efectuează prelucrarea elementului selectat. De obicei, în această procedură soluţia S<sub>i</sub> este afişată la ecran.)
+			<br><br>
+			<img id="img" src="imagini/schema triere.png" width="80%">
+			<br><br>
+		</div>
+		<hr>
+		<div id="utilizare"><b><center>Cazuri de utilizare</center></b>
+			Metoda Trierii este aplicată pe larg în soluţionarea problemelor cu scopuri didactice. Aceasta ,însă, nu poate fi aplicată problemelor complexe ce necesită date de intrare a căror valori sunt foarte mari. Astfel de date ce sunt supuse prelucrării conduc spre algoritmi exponenţiali. Pentru verificarea tuturor cazurilor va fi necesar de un timp mare de execuţie care depinde de numărul de k elemente ce trebuie găsite in mulţimea soluţiilor posibile S. Însa timpul pentru majoritatea execuţiilor în ziua de azi este limitat de diferite circumstanţe de aceea metoda trierii se foloseste numai în cazul cînd timpul de execuţie nu este critic.
+		</div>
+		<hr>
+		<div id="exemple"><b><center>Exemple</center></b>
+			<div id="denumire">I. Numere de 3 cifre ce adunate dau o sumă oarecare</div>
+			<br>
+			Condiția: Să se scrie un program care să afișeze la ecran toate numerele de 3 cifre, a căror sumă este egală cu N.
+			<br>
+			Abordarea problemei: Vom itera o variabilă pentru fiecare cifră a numărului și vom verifica dacă suma cifrelor este egală cu N.
+			<br>
+			<a href="imagini/suma cifre.png">Algoritm C++</a>
+			<br><br>
+			<div id="denumire">II. Bilete Norocoase</div>
+			<br>
+			Condiția: Când te-ai urcat în transportul public spre casă, ai primit un bilet norocos. Acum te întrebi care sunt toate combinațiile posibile de cifre pentru astfel de bilete.
+			<br>
+			Abordarea problemei: Vom itera o variabilă pentru fiecare cifră a numărului și vom verifica dacă suma primelor două cifre este egală cu suma ultimelor două.
+			<br>
+			<a href="imagini/bilete norocoase.png">Algoritm C++</a>
+			<br><br>
+			<div id="denumire">III. Suma În Monede</div>
+			<br>
+			Condiția: Ai nevoie urgent să schimbi o sumă în monede mai mici. Găsește toate combinațiile posibile de formare a acestei sume cu monede de 1,3,5 și 10 bani.
+			<br>
+			Abordarea problemei: Vom itera o variabilă pentru fiecare tip de monedă a numărului și vom verifica dacă suma lor este egală cu N.
+			<br>
+			<a href="imagini/smonede.png">Algoritm C++</a>
+	</div>
+	
+</body>
+</html>
